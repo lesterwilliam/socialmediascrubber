@@ -56,7 +56,7 @@ def preproc():
  for i in range (0, file4.shape[0]):
   s = str((file4.at[i,'Message']))
   bandList.extend(s.split(","))
-  print(bandList[i])
+  #print(bandList[i])
  for i in range (0, len(bandList)):
   bandList[i] = bandList[i].strip()
   bandList[i] = bandList[i].rstrip()
