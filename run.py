@@ -2,6 +2,7 @@
 # place csv-file in original inputs
 
 import preprocessing as pre
-import getbands
+import getbands as gb
 
-pre.preproc()
+#pre.preproc()
+gb.getbands()
