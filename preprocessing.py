@@ -30,7 +30,7 @@ def preproc():
  file4 = file3
  for i in range (0, file4.shape[0]):
   s = str((file4.at[i,'Message']))
-  charsToReplace = ['!','?','/','\n']
+  charsToReplace = ['!','?','/','\n','...','   ']
   for ch in charsToReplace:
    if ch in s:
     s = s.replace(ch,',')
@@ -60,6 +60,8 @@ def preproc():
  for i in range (0, len(bandList)):
   bandList[i] = bandList[i].strip()
   bandList[i] = bandList[i].rstrip()
+  #bandList[i] = bandList[i].strip('.')
+  #bandList[i] = bandList[i].rstrip('.')
   #print(bandList[i])
  with open("filetrain/preprocessing/file5.csv",'w') as resultFile:
   wr = csv.writer(resultFile, dialect='excel')
