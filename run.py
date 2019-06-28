@@ -4,5 +4,5 @@
 import preprocessing as pre
 import getbands as gb
 
-#pre.preproc()
+pre.preproc()
 gb.getbands()
