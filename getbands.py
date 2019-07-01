@@ -13,7 +13,7 @@ def getbands():
  bandList = []
  bandCounts = []
  
- workload = file6.shape[0]
+ workload = 500#file6.shape[0]
  
  for i in range (0, workload):
   t = str((file6.at[i,'Message']))

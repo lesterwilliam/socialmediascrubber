@@ -1,8 +1,14 @@
 # exporting facebook comments with https://socialfy.pw/facebook-export-comments
 # place csv-file in original inputs
 
+import time
 import preprocessing as pre
-import getbands as gb
+#import getbands as gb
 
-#pre.preproc()
-gb.getbands()
+startTime = time.time()
+
+pre.preproc()
+pre.getbands()
+
+endTime = time.time()
+print("Finished in " + str('{:.3f}'.format(endTime - startTime)) + " seconds.")
