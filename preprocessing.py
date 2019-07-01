@@ -2,6 +2,7 @@
 # place csv-file in original inputs
 
 import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'
 import numpy as np
 import string
 import csv
@@ -30,6 +31,7 @@ def preproc():
  file4 = file3
  for i in range (0, file4.shape[0]):
   s = str((file4.at[i,'Message']))
+  s = s.lower()
   charsToReplace = ['!','?','/','\n','...','   ']
   for ch in charsToReplace:
    if ch in s:
@@ -46,6 +48,10 @@ def preproc():
   for ch in charsToReplace:
    if ch in s:
     s = s.replace(ch,'ue')
+  charsToReplace = ['ffdp','5fdp']
+  for ch in charsToReplace:
+   if ch in s:
+    s = s.replace(ch,'five finger death punch')
   s = ''.join(filter(lambda x: x in printable, s))
   file4.at[i,'Message'] = s.lower()
  file4.to_csv("filetrain/preprocessing/file4.csv", index=False)
@@ -80,10 +86,3 @@ def preproc():
    file6.at[i,'Message'] = file6.at[i+1,'Message']
    file6.at[i+1,'Message'] = ''
  file6.to_csv("filetrain/preprocessing/file6.csv", index=False)
-
-
-# file6 ist langsam brauchbar
-# nächste schritte:
-# gleiche strings mit erhöhter anzahlt (schwellwerte) zählen und speichern
-# daraus liste aus beliebten namen erstellen
-# via fuzzywords gesamte vorkommnisse dieser namen abchecken
